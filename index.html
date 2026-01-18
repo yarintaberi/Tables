@@ -22,7 +22,26 @@
     <button onclick="findTable()"
             class="w-full bg-gray-800 text-white py-2 rounded hover:bg-black transition">חפש שולחן</button>
 
-    <div id="result" class="mt-4 text-center text-gray-700 min-h-[20px]"></div>
+    <div id="result>
+      <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-xl p-6 w-80 text-center">
+    <h2 class="text-xl font-bold mb-2">המקום שלך</h2>
+    <p id="modalText" class="mb-4 text-lg"></p>
+
+    <img
+      src="hall.png"
+      alt="Seating Plan"
+      class="rounded mb-4 w-full"
+    />
+
+    <button
+      onclick="closeModal()"
+      class="bg-black text-white px-4 py-2 rounded w-full"
+    >
+      סגור
+    </button>
+  </div>
+</div>
   </div>
 
   <script src="script.js"></script>
