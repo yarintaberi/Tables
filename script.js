@@ -1,9 +1,19 @@
 // נתונים לדוגמה – בהמשך נחליף ב-Google Sheets
-let guestList = {
-  "דני כהן": "1",
-  "שרה לוי": "2",
-  "יוסי פרץ": "3"
-};
+let guestList = {};
+
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQajZVUZrsuefc1bRzgDNcJNdsydbSexcQldDco9eXShOnQZt8k2Isy5vJucR6tKMaLRIxai9lI3pqM/pubhtml?gid=0&single=true";
+
+fetch(sheetURL)
+  .then(res => res.text())
+  .then(data => {
+    const lines = data.split("\n");
+    lines.forEach(line => {
+      const [name, table] = line.split(",");
+      if(name && table) guestList[name.trim()] = table.trim();
+    });
+    console.log("Guest list loaded:", guestList);
+  })
+  .catch(err => console.error("Error loading sheet:", err));
 
 // הצגת הצעות כשמקלידים
 function showSuggestions() {
