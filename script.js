@@ -1,7 +1,7 @@
 // נתונים לדוגמה – בהמשך נחליף ב-Google Sheets
 let guestList = {};
 
-const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQajZVUZrsuefc1bRzgDNcJNdsydbSexcQldDco9eXShOnQZt8k2Isy5vJucR6tKMaLRIxai9lI3pqM/pubhtml?gid=0&single=true";
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQajZVUZrsuefc1bRzgDNcJNdsydbSexcQldDco9eXShOnQZt8k2Isy5vJucR6tKMaLRIxai9lI3pqM/pub?gid=0&single=true&output=csv";
 
 fetch(sheetURL)
   .then(res => res.text())
