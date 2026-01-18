@@ -84,8 +84,14 @@ function findTable() {
   }
 
   // עדכון טקסט במודאל
-  document.getElementById('modalText').innerText =
-    `${name} יושב/ת בשולחן ${table}`;
+document.getElementById('modalText').innerHTML = `
+  <div class="text-sm text-gray-500 mb-1">
+    ${name}
+  </div>
+  <div class="text-3xl font-extrabold">
+    שולחן מס׳ ${table}
+  </div>
+`;
 
   // פתיחת המודאל
   const modal = document.getElementById('modal');
