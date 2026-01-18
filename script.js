@@ -46,25 +46,45 @@ function selectName(name) {
 
 // חיפוש שולחן
 function findTable() {
-  const input = document.getElementById('guestName');
-  const resultDiv = document.getElementById('result');
   const name = input.value.trim();
 
   if (!name) {
-    resultDiv.innerText = "אנא הקלד שם";
+    result.textContent = "אנא הזן שם";
     return;
   }
 
-  const table = guestList[name] || guestList[Object.keys(guestList)
-                                                .find(n => n.toLowerCase() === name.toLowerCase())];
+  // חיפוש לא רגיש לאותיות גדולות/קטנות
+  let table = guests[name];
 
-  if (table) {
-    resultDiv.innerText = `אתה יושב ב: ${table}`;
-  } else {
-    resultDiv.innerText = "השם לא נמצא";
+  if (!table) {
+    const lowerName = name.toLowerCase();
+    for (const guest in guests) {
+      if (guest.toLowerCase() === lowerName) {
+        table = guests[guest];
+        break;
+      }
+    }
   }
-}
 
+  if (!table) {
+    result.textContent = "השם לא נמצא 😕";
+    return;
+  }
+
+  // עדכון טקסט במודאל
+  document.getElementById("modalText").textContent =
+    `${name} יושב/ת בשולחן ${table}`;
+
+  // פתיחת המודאל
+  const modal = document.getElementById("modal");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
 function handleFocus() {
   document.getElementById('result').innerText = '';
+}
+function closeModal() {
+  const modal = document.getElementById("modal");
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
 }
