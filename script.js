@@ -79,7 +79,7 @@ function findTable() {
   }
 
   if (!table) {
-    result.innerText = "השם לא נמצא 😕";
+    result.innerText = "😕 השם לא נמצא";
     return;
   }
 
