@@ -1,143 +1,141 @@
-/* ===== Base ===== */
+/* ===== Reset בסיסי ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Body ===== */
 body {
   min-height: 100vh;
   margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: #f8fbff;
   overflow: hidden;
-  position: relative;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ===== Animated Background Blobs ===== */
-
-/* Blob ראשון – תכלת */
-body::before {
+/* ===== Animated Blobs ===== */
+body::before,
+body::after {
   content: "";
   position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
   width: 600px;
   height: 600px;
-  border-radius: 50%;
   background: radial-gradient(
-    circle at center,
-    rgba(80, 150, 255, 0.9) 0%,
-    rgba(80, 150, 255, 0.55) 35%,
-    rgba(80, 150, 255, 0.25) 60%,
-    rgba(80, 150, 255, 0.1) 75%,
-    transparent 85%
+    circle,
+    rgba(80,150,255,0.9),
+    rgba(80,150,255,0.4),
+    transparent 70%
   );
   filter: blur(60px);
   top: -150px;
   left: -150px;
   animation: floatBlob 30s ease-in-out infinite alternate;
-  z-index: -1;
-  pointer-events: none;
 }
 
-/* Blob שני – ורדרד עדין */
 body::after {
-  content: "";
-  position: fixed;
   width: 500px;
   height: 500px;
-  border-radius: 50%;
   background: radial-gradient(
-    circle at center,
-    rgba(239, 213, 242, 0.95) 0%,
-    rgba(239, 213, 242, 0.6) 35%,
-    rgba(239, 213, 242, 0.35) 60%,
-    rgba(239, 213, 242, 0.18) 75%,
-    transparent 85%
+    circle,
+    rgba(239,213,242,0.9),
+    rgba(239,213,242,0.45),
+    transparent 70%
   );
   filter: blur(70px);
   bottom: -150px;
   right: -150px;
   animation: floatBlobAlt 32s ease-in-out infinite alternate;
-  z-index: -1;
-  pointer-events: none;
 }
 
-/* ===== Blob Motion ===== */
 @keyframes floatBlob {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(60vw, 10vh); }
-  50% { transform: translate(30vw, 50vh); }
-  75% { transform: translate(10vw, 70vh); }
-  100% { transform: translate(50vw, 30vh); }
+  from { transform: translate(0,0); }
+  to   { transform: translate(50vw,50vh); }
 }
 
 @keyframes floatBlobAlt {
-  0% { transform: translate(0, 0); }
-  30% { transform: translate(-40vw, -20vh); }
-  60% { transform: translate(-20vw, -50vh); }
-  100% { transform: translate(-60vw, -30vh); }
+  from { transform: translate(0,0); }
+  to   { transform: translate(-40vw,-40vh); }
 }
 
-/* ===== iOS Glass Card ===== */
+/* ===== Glass Card ===== */
 .glass-card {
-  position: relative;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.35);
+  width: 100%;
+  max-width: 360px;
+  padding: 24px;
+
+  background: rgba(255,255,255,0.35);
   backdrop-filter: blur(22px) saturate(180%);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
+
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255,255,255,0.4);
+
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  padding: 24px;
+    0 20px 40px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  z-index: 10;
 }
 
-/* ===== iOS Glass Input ===== */
+/* ===== Input ===== */
 .glass-input {
   width: 100%;
   padding: 14px 18px;
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(18px);
+
   border-radius: 9999px;
-  color: #111;
+  border: 1px solid rgba(255,255,255,0.45);
+
   font-size: 16px;
+  color: #111;
   outline: none;
 }
 
 .glass-input::placeholder {
-  color: rgba(0, 0, 0, 0.55);
+  color: rgba(0,0,0,0.55);
 }
 
-/* ===== Premium Pill Button ===== */
+/* ===== Button ===== */
 .btn-pill {
   width: 100%;
   padding: 14px 0;
+
   background: #000;
   color: #fff;
+
   border: none;
   border-radius: 9999px;
+
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
 
-.btn-pill:hover {
-  background: #0a0a0a;
-}
-
 /* ===== Modal ===== */
-.modal-backdrop {
+.modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.45);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 50;
 }
 
-.modal-backdrop.active {
+.modal.active {
   display: flex;
 }
 
-.modal-card {
-  width: 320px;
+.modal .glass-card {
   text-align: center;
 }
