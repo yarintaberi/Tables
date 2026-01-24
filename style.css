@@ -1,31 +1,47 @@
-/* Animated soft blue background */
 body {
   min-height: 100vh;
   margin: 0;
-
-  background: linear-gradient(
-    135deg,
-    #ffffff,
-    #f2f8ff,
-    #e1efff,
-    #d6e9ff,
-    #ffffff
-  );
-
-  background-size: 350% 350%;
-  animation: gradientMove 30s ease infinite;
-
+  background: #f8fbff;
+  overflow: hidden;
+  position: relative;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@keyframes gradientMove {
+/* Blob of light */
+body::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(120, 190, 255, 0.45),
+    rgba(120, 190, 255, 0.15),
+    transparent 70%
+  );
+
+  filter: blur(120px);
+  top: -200px;
+  left: -200px;
+
+  animation: floatBlob 40s ease-in-out infinite alternate;
+}
+
+/* Movement */
+@keyframes floatBlob {
   0% {
-    background-position: 0% 50%;
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(60vw, 10vh);
   }
   50% {
-    background-position: 100% 50%;
+    transform: translate(30vw, 50vh);
+  }
+  75% {
+    transform: translate(10vw, 70vh);
   }
   100% {
-    background-position: 0% 50%;
+    transform: translate(50vw, 30vh);
   }
 }
