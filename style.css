@@ -11,20 +11,22 @@ body {
 body::before {
   content: "";
   position: absolute;
-  width: 700px;
-  height: 700px;
+  width: 650px;
+  height: 650px;
+
   background: radial-gradient(
     circle,
-    rgba(120, 190, 255, 0.45),
-    rgba(120, 190, 255, 0.15),
-    transparent 70%
+    rgba(90, 160, 255, 0.75),
+    rgba(90, 160, 255, 0.35),
+    rgba(90, 160, 255, 0.15),
+    transparent 75%
   );
 
-  filter: blur(120px);
-  top: -200px;
-  left: -200px;
+  filter: blur(80px);
+  top: -150px;
+  left: -150px;
 
-  animation: floatBlob 40s ease-in-out infinite alternate;
+  animation: floatBlob 35s ease-in-out infinite alternate;
 }
 
 /* Movement */
