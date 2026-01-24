@@ -2,12 +2,13 @@
 body {
   min-height: 100vh;
   margin: 0;
-  background: #f8fbff;
-  overflow: hidden;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #f8fbff;
+  position: relative;
   padding: 1rem;
 }
 
