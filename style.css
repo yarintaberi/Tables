@@ -30,7 +30,7 @@ body::before {
   top: -150px;
   left: -150px;
 
-  animation: floatBlob 40s ease-in-out infinite alternate;
+  animation: floatBlob 30s ease-in-out infinite alternate;
 
   z-index: -1;
   pointer-events: none;
