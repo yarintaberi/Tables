@@ -2,63 +2,54 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>חיפוש שולחן</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- Main Card -->
-  <div class="glass-card">
+  <!-- חלון ראשי עם זכוכית -->
+  <div class="glass-card w-full max-w-sm mx-auto">
+    
+    <!-- לוגו -->
+    <img src="NamesLogo.jpg" alt="Names Logo" class="mx-auto mb-4 max-h-32 object-contain">
 
-    <img
-      src="NamesLogo.png"
-      alt="Names Logo"
-      style="display:block;margin:0 auto 16px;max-height:120px;"
-    >
+    <h1 class="text-2xl font-bold text-center mb-4">מצא את השולחן שלך</h1>
 
-    <h1 style="text-align:center;margin-bottom:16px;">
-      מצא את השולחן שלך
-    </h1>
-
+    <!-- שורת החיפוש -->
     <input
-      id="guestName"
       type="text"
-      class="glass-input"
+      id="guestName"
       placeholder="הקלד את שמך"
-    >
+      class="glass-input mb-4"
+      oninput="showSuggestions()"
+      onfocus="handleFocus()"
+      onblur="hideSuggestions()"
+      dir="rtl"
+    />
 
-    <div style="height:16px"></div>
+    <!-- הצעות אוטומטיות -->
+    <div id="suggestions" class="hidden border rounded mb-4 max-h-32 overflow-y-auto"></div>
 
-    <button class="btn-pill" onclick="findTable()">
-      חפש שולחן
-    </button>
+    <!-- כפתור חיפוש -->
+    <button onclick="findTable()" class="btn-pill mb-2">חפש שולחן</button>
 
+    <!-- הודעות מתחת -->
+    <div id="result" class="mt-4 text-center text-gray-700 min-h-[20px]"></div>
   </div>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="glass-card">
-      <h2>המקום שלך</h2>
+  <!-- מודאל -->
+  <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="glass-card w-80 text-center relative">
+      <div id="modalText" class="mb-4"></div>
 
-      <div
-        id="modalText"
-        style="font-size:26px;font-weight:700;margin:16px 0;"
-      ></div>
+      <img src="hall.png" alt="Seating Plan" class="rounded mb-4 w-full">
 
-      <img
-        src="hall.png"
-        style="width:100%;border-radius:16px;margin-bottom:16px;"
-      >
-
-      <button class="btn-pill" onclick="closeModal()">סגור</button>
+      <button onclick="closeModal()" class="btn-pill">סגור</button>
     </div>
   </div>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
