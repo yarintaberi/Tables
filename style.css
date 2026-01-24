@@ -1,3 +1,4 @@
+/* ===== Base ===== */
 body {
   min-height: 100vh;
   margin: 0;
@@ -7,11 +8,12 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Blob ראשון – תכלת בהיר */
+/* ===== Animated Background Blobs ===== */
+
+/* Blob ראשון – תכלת */
 body::before {
   content: "";
   position: fixed;
-
   width: 600px;
   height: 600px;
   border-radius: 50%;
@@ -26,7 +28,6 @@ body::before {
   );
 
   filter: blur(60px);
-
   top: -150px;
   left: -150px;
 
@@ -36,26 +37,24 @@ body::before {
   pointer-events: none;
 }
 
-/* Blob שני – תכלת כהה יותר */
+/* Blob שני – ורדרד עדין */
 body::after {
   content: "";
   position: fixed;
-
   width: 500px;
   height: 500px;
   border-radius: 50%;
 
   background: radial-gradient(
-  circle at center,
-  rgba(239, 213, 242, 0.95) 0%,
-  rgba(239, 213, 242, 0.6) 35%,
-  rgba(239, 213, 242, 0.35) 60%,
-  rgba(239, 213, 242, 0.18) 75%,
-  transparent 85%
-);
+    circle at center,
+    rgba(239, 213, 242, 0.95) 0%,
+    rgba(239, 213, 242, 0.6) 35%,
+    rgba(239, 213, 242, 0.35) 60%,
+    rgba(239, 213, 242, 0.18) 75%,
+    transparent 85%
+  );
 
   filter: blur(70px);
-
   bottom: -150px;
   right: -150px;
 
@@ -65,7 +64,7 @@ body::after {
   pointer-events: none;
 }
 
-/* תנועה – Blob ראשון */
+/* ===== Blob Motion ===== */
 @keyframes floatBlob {
   0%   { transform: translate(0, 0); }
   25%  { transform: translate(60vw, 10vh); }
@@ -74,7 +73,6 @@ body::after {
   100% { transform: translate(50vw, 30vh); }
 }
 
-/* תנועה – Blob שני */
 @keyframes floatBlobAlt {
   0%   { transform: translate(0, 0); }
   30%  { transform: translate(-40vw, -20vh); }
@@ -82,55 +80,7 @@ body::after {
   100% { transform: translate(-60vw, -30vh); }
 }
 
-/* ===== Premium Button Style ===== */
-.btn-pill {
-  width: 100%;
-  background: #000000;
-  color: #ffffff;
-
-  padding: 14px 0;
-
-  border: none;
-  border-radius: 9999px; /* חצי כדור */
-
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-
-  cursor: pointer;
-
-  transition: all 0.25s ease;
-}
-
-/* Hover */
-.btn-pill:hover {
-  background: #0a0a0a;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-/* Click */
-.btn-pill:active {
-  transform: translateY(0);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-}
-
 /* ===== iOS Glass Card ===== */
-.glass-card {
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(22px) saturate(180%);
-  -webkit-backdrop-filter: blur(22px) saturate(180%);
-
-  border-radius: 24px;
-
-  border: 1px solid rgba(255, 255, 255, 0.4);
-
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-
-  padding: 24px;
-}
 .glass-card {
   position: relative;
   z-index: 10;
@@ -138,17 +88,21 @@ body::after {
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(22px) saturate(180%);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
+
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.4);
+
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
   padding: 24px;
 }
 
 /* ===== iOS Glass Input ===== */
 .glass-input {
   width: 100%;
+  padding: 14px 18px;
 
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(18px) saturate(180%);
@@ -157,26 +111,51 @@ body::after {
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 9999px;
 
-  padding: 14px 18px;
-
   color: #ffffff;
   font-size: 15px;
   font-weight: 500;
 
   outline: none;
-
   transition: all 0.25s ease;
 }
 
-/* Placeholder */
 .glass-input::placeholder {
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Focus */
 .glass-input:focus {
   border-color: rgba(255, 255, 255, 0.7);
   box-shadow:
     0 0 0 2px rgba(255, 255, 255, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* ===== Premium Pill Button ===== */
+.btn-pill {
+  width: 100%;
+  padding: 14px 0;
+
+  background: #000000;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 9999px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-pill:hover {
+  background: #0a0a0a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.btn-pill:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
 }
