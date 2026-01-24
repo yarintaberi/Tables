@@ -1,0 +1,31 @@
+/* Animated soft blue background */
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  background: linear-gradient(
+    120deg,
+    #ffffff,
+    #f9fcff,
+    #eef6ff,
+    #e6f2ff,
+    #ffffff
+  );
+
+  background-size: 400% 400%;
+  animation: gradientMove 35s ease infinite;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
