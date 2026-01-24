@@ -13,25 +13,24 @@
 <body>
 
   <!-- Main Card -->
-  <div class="glass-card" style="max-width:360px;margin:auto;margin-top:15vh;">
+  <div class="glass-card">
 
     <img
       src="NamesLogo.png"
       alt="Names Logo"
       style="display:block;margin:0 auto 16px;max-height:120px;"
-    />
+    >
 
-    <h1 style="text-align:center;font-size:22px;margin-bottom:16px;">
+    <h1 style="text-align:center;margin-bottom:16px;">
       מצא את השולחן שלך
     </h1>
 
     <input
-      type="text"
       id="guestName"
+      type="text"
       class="glass-input"
       placeholder="הקלד את שמך"
-      dir="rtl"
-    />
+    >
 
     <div style="height:16px"></div>
 
@@ -42,12 +41,19 @@
   </div>
 
   <!-- Modal -->
-  <div id="modal" class="modal-backdrop">
-    <div class="glass-card modal-card">
-      <h2 style="margin-bottom:12px;">המקום שלך</h2>
-      <div id="modalText" style="font-size:26px;font-weight:700;margin-bottom:16px;"></div>
+  <div id="modal" class="modal">
+    <div class="glass-card">
+      <h2>המקום שלך</h2>
 
-      <img src="hall.png" style="width:100%;border-radius:16px;margin-bottom:16px;">
+      <div
+        id="modalText"
+        style="font-size:26px;font-weight:700;margin:16px 0;"
+      ></div>
+
+      <img
+        src="hall.png"
+        style="width:100%;border-radius:16px;margin-bottom:16px;"
+      >
 
       <button class="btn-pill" onclick="closeModal()">סגור</button>
     </div>
