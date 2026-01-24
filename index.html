@@ -8,24 +8,24 @@
 </head>
 <body>
 
-  <!-- חלון ראשי עם זכוכית -->
+  <!-- חלון ראשי חיפוש -->
   <div class="glass-card w-full max-w-sm mx-auto">
-    
+
     <!-- לוגו -->
     <img src="NamesLogo.jpg" alt="Names Logo" class="mx-auto mb-4 max-h-32 object-contain">
 
     <h1 class="text-2xl font-bold text-center mb-4">מצא את השולחן שלך</h1>
 
-    <!-- שורת החיפוש -->
+    <!-- שורת חיפוש -->
     <input
       type="text"
       id="guestName"
       placeholder="הקלד את שמך"
       class="glass-input mb-4"
+      dir="rtl"
       oninput="showSuggestions()"
       onfocus="handleFocus()"
       onblur="hideSuggestions()"
-      dir="rtl"
     />
 
     <!-- הצעות אוטומטיות -->
@@ -34,14 +34,15 @@
     <!-- כפתור חיפוש -->
     <button onclick="findTable()" class="btn-pill mb-2">חפש שולחן</button>
 
-    <!-- הודעות מתחת -->
+    <!-- הודעות -->
     <div id="result" class="mt-4 text-center text-gray-700 min-h-[20px]"></div>
   </div>
 
   <!-- מודאל -->
   <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
     <div class="glass-card w-80 text-center relative">
-      <div id="modalText" class="mb-4"></div>
+
+      <div id="modalText" class="mb-4 text-center text-black"></div>
 
       <img src="hall.png" alt="Seating Plan" class="rounded mb-4 w-full">
 
