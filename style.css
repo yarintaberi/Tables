@@ -4,16 +4,16 @@ body {
   margin: 0;
 
   background: linear-gradient(
-    120deg,
+    135deg,
     #ffffff,
-    #f9fcff,
-    #eef6ff,
-    #e6f2ff,
+    #f2f8ff,
+    #e1efff,
+    #d6e9ff,
     #ffffff
   );
 
-  background-size: 400% 400%;
-  animation: gradientMove 35s ease infinite;
+  background-size: 350% 350%;
+  animation: gradientMove 30s ease infinite;
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
