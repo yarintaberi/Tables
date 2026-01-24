@@ -10,25 +10,30 @@ body {
 /* Blob of light */
 body::before {
   content: "";
-  position: absolute;
-  width: 650px;
-  height: 650px;
+  position: fixed; /* חשוב */
+  inset: 0;
+
+  width: 700px;
+  height: 700px;
 
   background: radial-gradient(
     circle,
-    rgba(90, 160, 255, 0.75),
-    rgba(90, 160, 255, 0.35),
+    rgba(90, 160, 255, 0.85),
+    rgba(90, 160, 255, 0.4),
     rgba(90, 160, 255, 0.15),
     transparent 75%
   );
 
-  filter: blur(80px);
-  top: -150px;
-  left: -150px;
+  filter: blur(70px);
+
+  top: -200px;
+  left: -200px;
 
   animation: floatBlob 35s ease-in-out infinite alternate;
-}
 
+  z-index: -1;              /* 🔑 מאחורי הכל */
+  pointer-events: none;     /* 🔑 לא חוסם קליקים */
+}
 /* Movement */
 @keyframes floatBlob {
   0% {
