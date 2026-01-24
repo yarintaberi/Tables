@@ -180,4 +180,13 @@ body::after {
 #modalText {
   color: #ffffff; /* טקסט לבן */
 }
+  /* כותרת המודאל "המקום שלך" בצבע לבן */
+#modal h2 {
+  color: #ffffff;
+}
+
+/* הטקסט בתוך modalText (שם האדם + שולחן) בצבע לבן */
+#modalText {
+  color: #ffffff;
+}
 }
