@@ -46,12 +46,13 @@ body::after {
   border-radius: 50%;
 
   background: radial-gradient(
-    circle at center,
-    rgba(40, 120, 220, 0.85),
-    rgba(40, 120, 220, 0.45),
-    rgba(40, 120, 220, 0.2),
-    transparent 80%
-  );
+  circle at center,
+  rgba(180, 120, 200, 0.85) 0%,
+  rgba(180, 120, 200, 0.5) 35%,
+  rgba(180, 120, 200, 0.25) 60%,
+  rgba(180, 120, 200, 0.12) 75%,
+  transparent 85%
+);
 
   filter: blur(70px);
 
