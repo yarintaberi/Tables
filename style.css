@@ -7,7 +7,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Blob of light */
+/* Blob ראשון – תכלת בהיר */
 body::before {
   content: "";
   position: fixed;
@@ -35,6 +35,8 @@ body::before {
   z-index: -1;
   pointer-events: none;
 }
+
+/* Blob שני – תכלת כהה יותר */
 body::after {
   content: "";
   position: fixed;
@@ -61,35 +63,20 @@ body::after {
   z-index: -1;
   pointer-events: none;
 }
-/* Movement */
+
+/* תנועה – Blob ראשון */
 @keyframes floatBlob {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(60vw, 10vh);
-  }
-  50% {
-    transform: translate(30vw, 50vh);
-  }
-  75% {
-    transform: translate(10vw, 70vh);
-  }
-  100% {
-    transform: translate(50vw, 30vh);
-  }
-  @keyframes floatBlobAlt {
-  0% {
-    transform: translate(0, 0);
-  }
-  30% {
-    transform: translate(-40vw, -20vh);
-  }
-  60% {
-    transform: translate(-20vw, -50vh);
-  }
-  100% {
-    transform: translate(-60vw, -30vh);
-  }
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(60vw, 10vh); }
+  50%  { transform: translate(30vw, 50vh); }
+  75%  { transform: translate(10vw, 70vh); }
+  100% { transform: translate(50vw, 30vh); }
 }
+
+/* תנועה – Blob שני */
+@keyframes floatBlobAlt {
+  0%   { transform: translate(0, 0); }
+  30%  { transform: translate(-40vw, -20vh); }
+  60%  { transform: translate(-20vw, -50vh); }
+  100% { transform: translate(-60vw, -30vh); }
 }
