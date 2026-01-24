@@ -81,3 +81,36 @@ body::after {
   60%  { transform: translate(-20vw, -50vh); }
   100% { transform: translate(-60vw, -30vh); }
 }
+
+/* ===== Premium Button Style ===== */
+.btn-pill {
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+
+  padding: 14px 0;
+
+  border: none;
+  border-radius: 9999px; /* חצי כדור */
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.btn-pill:hover {
+  background: #0a0a0a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Click */
+.btn-pill:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
