@@ -41,21 +41,48 @@
   class="mb-4 text-center text-sm text-gray-800 min-h-[20px]"
 ></div>
 
-<!-- אזור תחתון קבוע -->
-<div class="mt-6 flex flex-col justify-between min-h-[96px]">
+<!-- החלונית הראשית -->
+<div class="glass-card w-full max-w-sm flex flex-col gap-4">
+  <!-- Logo -->
+  <img
+    src="NamesLogo.png"
+    alt="Names Logo"
+    class="mx-auto mb-4 max-h-32 object-contain"
+  />
+
+  <h1 class="text-2xl font-bold text-center mb-4">
+    מצא את השולחן שלך
+  </h1>
+
+  <input
+    type="text"
+    id="guestName"
+    placeholder="הקלד את שמך"
+    class="glass-input mb-4"
+    dir="rtl"
+    oninput="showSuggestions()"
+    onfocus="handleFocus()"
+    onblur="hideSuggestions()"
+  />
+
+  <!-- כפתור חיפוש -->
   <button onclick="findTable()" class="btn-pill">
     חפש שולחן
   </button>
+</div>
 
+<!-- הקישור מחוץ לחלונית, מתחתיה -->
+<div class="mt-4 text-center">
   <a
     href="https://wa.me/393513102505"
     target="_blank"
     rel="noopener noreferrer"
-    class="text-sm text-center text-black/60 hover:text-black underline transition"
+    class="text-sm text-black/60 hover:text-black underline transition"
   >
     גם אני רוצה כזה לאירוע שלי 🤍
   </a>
 </div>
+    
     <div id="result" class="mt-4 text-center text-gray-700 min-h-[20px]"></div>
   </div>
 
