@@ -30,9 +30,9 @@ function showSuggestions() {
     return;
   }
 
-  const matches = Object.keys(guestList).filter(name =>
-    name.toLowerCase().startsWith(value)
-  );
+const matches = Object.keys(guestList).filter(name =>
+  name.toLowerCase().includes(value)
+);
 
   if (matches.length === 0) {
     suggestionsDiv.classList.add('hidden');
