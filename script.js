@@ -1,5 +1,6 @@
 // נתונים לדוגמה – בהמשך נחליף ב-Google Sheets
 let guestList = {};
+let currentTable = null;
 
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQajZVUZrsuefc1bRzgDNcJNdsydbSexcQldDco9eXShOnQZt8k2Isy5vJucR6tKMaLRIxai9lI3pqM/pub?gid=0&single=true&output=csv";
 
@@ -83,6 +84,8 @@ function findTable() {
     return;
   }
 
+  currentTable = table;
+
   // עדכון טקסט במודאל
 document.getElementById('modalText').innerHTML = `
   <div class="text-sm text-gray-500 mb-1">
@@ -101,6 +104,30 @@ document.getElementById('modalText').innerHTML = `
 
 function closeModal() {
   const modal = document.getElementById('modal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+}
+
+
+function openTableGuests() {
+  if (!currentTable) return;
+
+  const tableGuests = Object.keys(guestList)
+    .filter(name => guestList[name] === currentTable);
+
+  document.getElementById('tableNumberTitle').innerText =
+    `שולחן מספר ${currentTable}`;
+
+  document.getElementById('tableGuestsList').innerHTML =
+    tableGuests.map(name => `<li>• ${name}</li>`).join('');
+
+  const modal = document.getElementById('tableModal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+}
+
+function closeTableModal() {
+  const modal = document.getElementById('tableModal');
   modal.classList.add('hidden');
   modal.classList.remove('flex');
 }
