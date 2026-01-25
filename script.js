@@ -88,11 +88,20 @@ function findTable() {
 
   // עדכון טקסט במודאל
 document.getElementById('modalText').innerHTML = `
-  <div class="text-sm text-gray-500 mb-1">
+  <div class="text-sm mb-3 text-white opacity-90">
     ${name}
   </div>
-  <div class="text-3xl font-extrabold">
-    שולחן מס׳ ${table}
+
+  <div class="text-base mb-2 text-white">
+    תודה רבה שהגעת 🤍
+  </div>
+
+  <div class="text-base mb-3 text-white">
+    המקום שלך מחכה לך
+  </div>
+
+  <div class="text-3xl font-extrabold text-white">
+    בשולחן מס׳ ${table}
   </div>
 `;
 
