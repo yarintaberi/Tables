@@ -8,13 +8,20 @@ fetch(sheetURL)
   .then(res => res.text())
   .then(data => {
     const lines = data.split("\n");
-    lines.forEach(line => {
+
+    // מדלג על שורת הכותרות (שורה ראשונה)
+    lines.slice(1).forEach(line => {
       const [name, table] = line.split(",");
-      if(name && table) guestList[name.trim()] = table.trim();
+
+      if (name && table) {
+        guestList[name.trim()] = table.trim();
+      }
     });
+
     console.log("Guest list loaded:", guestList);
   })
   .catch(err => console.error("Error loading sheet:", err));
+
 
 // הצגת הצעות כשמקלידים
 function showSuggestions() {
